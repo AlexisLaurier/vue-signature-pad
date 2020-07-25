@@ -79,7 +79,7 @@ export default {
   methods: {
     resizeCanvas() {
       const canvas = this.$refs.signaturePadCanvas;
-      const data = this.signaturePad.toData();
+      const data = this.signaturePad.toDataURL();
       const ratio = Math.max(window.devicePixelRatio || 1, 1);
 
       canvas.width = canvas.offsetWidth * ratio;
@@ -88,7 +88,7 @@ export default {
 
       this.signaturePad.clear();
       this.signatureData = TRANSPARENT_PNG;
-      this.signaturePad.fromData(data);
+      this.signaturePad.fromDataURL(data);
     },
     saveSignature(type = IMAGE_TYPES[0], encoderOptions) {
       const { signaturePad } = this;
